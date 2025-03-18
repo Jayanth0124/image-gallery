@@ -1,0 +1,647 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+.main-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Add margin to prevent overlap */
+body {
+  padding-top: 70px;
+  /* Adjust based on header height */
+}
+
+/* Prevent horizontal scrolling */
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* Ensure all elements stay within the screen */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ============================
+   Header Styling with Gradient Animation
+============================ */
+/* Animated Gradient Background */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #8A6CFF, #6C63FF, #FF6B6B, #00e5ff);
+    background-size: 200% 200%; /* Reduced size for faster movement */
+    color: white;
+    padding: 15px 30px;
+    min-height: 80px;
+    z-index: 1000;
+    text-align: center;
+    animation: gradientShift 5s infinite ease-in-out;
+}
+
+/* Faster & Smoother Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* ============================
+ Logo Styling
+============================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+/* ============================
+ Bubble Effect for Title
+============================ */
+.bubble-text {
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+/* Floating Bubbles - Main */
+.bubble-text::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubbleFloat 3s infinite ease-in-out;
+}
+
+/* Additional Bubble */
+.bubble-text::before {
+  content: "";
+  position: absolute;
+  left: 30%;
+  bottom: -10px;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubbleFloat 4s infinite ease-in-out 0.7s;
+}
+
+/* Floating Bubble Animation */
+@keyframes bubbleFloat {
+  0% {
+      transform: translateY(0) scale(0.5);
+      opacity: 1;
+  }
+  50% {
+      transform: translateY(-30px) scale(1);
+      opacity: 0.7;
+  }
+  100% {
+      transform: translateY(-60px) scale(1.5);
+      opacity: 0;
+  }
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Search Section */
+.search {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Adjust height as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Background Video */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Ensures the video covers the section */
+  z-index: -1;
+}
+
+/* Dark Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+  z-index: 0;
+}
+
+/* Content on top of the video */
+.search .content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 20px;
+}
+
+.search p {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 300px;
+  margin: 0 auto 15px;
+  backdrop-filter: blur(5px); /* Glassmorphism effect */
+}
+
+.search-box i {
+  color: white;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: white;
+  width: 100%;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Toggle Buttons */
+.toggle-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.toggle-btn {
+  background: #8A6CFF;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn i {
+  font-size: 1.3rem;
+}
+
+.toggle-btn.active {
+  background: #704dff;
+  transform: scale(1.05);
+}
+
+.toggle-btn:hover {
+  background: #704dff;
+  transform: scale(1.1);
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery .images {
+  gap: 15px;
+  max-width: 95%;
+  margin-top: 40px;
+  columns: 5 340px;
+  list-style: none;
+}
+
+.gallery .images .card {
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  border-radius: 4px;
+}
+
+.gallery .images img {
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+
+
+
+.images .details {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  bottom: -100px;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  justify-content: space-between;
+  transition: bottom 0.1s ease;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.images li:hover .details {
+  bottom: 0;
+}
+
+.photographer {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.photographer i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+.photographer span {
+  font-size: 1.05rem;
+}
+
+button,
+i {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s ease;
+}
+
+.details button {
+  background: #fff;
+  font-size: 1.1rem;
+  padding: 3px 8px;
+}
+
+.details .download-btn:hover {
+  background: #f2f2f2;
+}
+
+.gallery .load-more {
+  color: #fff;
+  background: #8A6CFF;
+  margin: 50px 0;
+  font-size: 1.2rem;
+  padding: 12px 27px;
+}
+
+.gallery .load-more.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.gallery .load-more:hover {
+  background: #704dff;
+}
+
+.lightbox {
+  z-index: 5;
+  position: fixed;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.lightbox.show {
+  visibility: visible;
+}
+
+.lightbox .wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  padding: 20px;
+  max-width: 850px;
+  background: #fff;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+.lightbox.show .wrapper {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.wrapper header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .photographer {
+  color: #333;
+}
+
+header .photographer i {
+  font-size: 1.7rem;
+  cursor: auto;
+}
+
+header .photographer span {
+  font-size: 1.2rem;
+}
+
+header .buttons i {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 40px;
+  text-align: center;
+  background: #8A6CFF;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+header .buttons i:first-child:hover {
+  background: #704dff;
+}
+
+header .buttons i:last-child {
+  margin-left: 10px;
+  font-size: 1.25rem;
+  background: #6C757D;
+}
+
+header .buttons i:last-child:hover {
+  background: #5f666d;
+}
+
+.wrapper .preview-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.preview-img .img {
+  max-height: 65vh;
+}
+
+.preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 688px) {
+  .lightbox .wrapper {
+    padding: 12px;
+    max-width: calc(100% - 26px);
+  }
+
+  .wrapper .preview-img {
+    margin-top: 15px;
+  }
+
+  header .buttons i:last-child {
+    margin-left: 7px;
+  }
+
+  header .photographer span,
+  .search p {
+    font-size: 1.1rem;
+  }
+
+  .search h1 {
+    font-size: 1.8rem;
+  }
+
+  .search .search-box {
+    height: 50px;
+    margin: 30px 0;
+  }
+
+  .gallery .images {
+    max-width: 100%;
+    padding: 0 13px;
+    margin-top: 20px;
+  }
+
+  .images .details {
+    bottom: 0px;
+  }
+
+  .gallery .load-more {
+    padding: 10px 25px;
+    font-size: 1.05rem;
+  }
+}
+
+/* Toggle Button Styles */
+.toggle-options {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.toggle-btn {
+  background: #8A6CFF;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: #704dff;
+}
+
+.toggle-btn:hover {
+  background: #704dff;
+}
+
+/* Video Styles */
+.gallery .images video {
+  width: 100%;
+  border-radius: 5px;
+  display: block;
+}
+
+.gallery .images .card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.gallery .images .card video {
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery .images .card .details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.gallery .images .card:hover .details {
+  transform: translateY(0);
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 688px) {
+  .toggle-btn {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  .gallery .images .card .details {
+    padding: 10px;
+  }
+}
+
+/* Premium Footer Styling */
+.main-footer {
+  background: linear-gradient(135deg, #1E1E2F, #29294E); /* Dark Elegant Gradient */
+  color: white;
+  text-align: center;
+  padding: 20px 25px;
+  box-shadow: 0 -4px 12px rgba(255, 223, 0, 0.2);
+  border-top: 3px solid #FFD700;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  position: relative;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-bottom: 12px;
+}
+
+.social-icons a {
+  color: #FFD700; /* Gold Icons */
+  font-size: 1.8rem;
+  margin: 0 12px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #0FFCBE; /* Neon Cyan on Hover */
+  transform: scale(1.3);
+}
+
+/* Footer Text */
+.main-footer p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
+}
+
+/* Animated Glow Effect */
+@keyframes glowEffect {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Premium Animated Name */
+.footer-text {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00fbff, #3300ff, #aa00ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: glowEffect 5s infinite linear;
+}
+
+/* Hover Effect */
+.footer-text:hover {
+  transform: scale(1.15);
+  transition: 0.4s ease-in-out;
+  
+}
