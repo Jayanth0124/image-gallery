@@ -194,6 +194,12 @@ html {
   z-index: 1;
   color: white;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center text properly */
+  width: 100%;
 }
 
 .search p {
@@ -209,7 +215,8 @@ html {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 10px 15px;
-  width: 300px;
+  width: 90%; /* Adjust width for small screens */
+  max-width: 400px;
   margin: 0 auto 15px;
   backdrop-filter: blur(5px); /* Glassmorphism effect */
 }
@@ -233,6 +240,17 @@ html {
   color: rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (max-width: 600px) {
+  .search .content {
+      width: 100%;
+      padding: 0 10px; /* Add slight padding for better spacing */
+  }
+
+  .search-box {
+      width: 100%;
+      max-width: 350px;
+  }
+}
 /* Toggle Buttons */
 .toggle-options {
   display: flex;
