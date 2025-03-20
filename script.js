@@ -63,9 +63,13 @@ const getVideos = (apiURL) => {
                             <i class="uil uil-camera"></i>
                             <span>${video.user.name || 'Unknown'}</span>
                         </div>
+                        <button onclick="downloadVideo('${video.video_files[0].link}');">
+                            <i class="uil uil-import"></i> <!-- Download icon -->
+                        </button>
                     </div>
                 </li>`
             ).join("");
+
 
             loadMoreBtn.innerText = "Load More";
             loadMoreBtn.classList.remove("disabled");
@@ -130,3 +134,30 @@ getImages(`https://api.pexels.com/v1/curated?page=1&per_page=${perPage}`);
 loadMoreBtn.addEventListener("click", loadMore);
 searchInput.addEventListener("keyup", searchContent);
 
+const downloadVideo = (videoUrl) => {
+    fetch(videoUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "downloaded-video.mp4"; // Default filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(() => alert("Failed to download the video!"));
+};
+
+const downloadImg = (imgUrl) => {
+    fetch(imgUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "downloaded-image.jpg"; // Default file name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(() => alert("Failed to download the image!"));
+};
