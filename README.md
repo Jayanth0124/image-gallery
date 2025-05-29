@@ -46,7 +46,7 @@ This project is licensed under the **MIT License** – feel free to use and modi
 ## 📞 Contact
 🔹 **Your Name** – [LinkedIn](https://www.linkedin.com/in/jayanth-donavalli)  
 🔹 **Email** – jayanthdonavalli0124@gmail.com
-🔹 **Website** – [yourwebsite.com](https://www.jayanth.xyz)
+🔹 **Website** – [jayanth](https://www.jayanth.site)
 
 ---
 ⭐ *If you like this project, don't forget to give it a star on GitHub!* ⭐
